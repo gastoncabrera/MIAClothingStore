@@ -1,0 +1,38 @@
+.container__shop {
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image__container {
+  height: 100vw;
+  width: 90vw;
+  border: 1px solid red;
+}
+.description__container {
+  text-align: center;
+  margin: 2rem 0;
+}
+.description__title {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: $font-secondary;
+}
+.description__quantity {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.btn {
+  padding: 0;
+}
+.description__size {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+}
+.size {
+  padding: 0 0.5rem;
+}
