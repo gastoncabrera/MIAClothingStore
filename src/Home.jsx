@@ -1,18 +1,17 @@
 import "./sass/pages/home.scss";
 import hero from "./assets/images/heroimg.jpg";
 import Category from "./component/Category";
-import { categories, products } from "./const";
+// import { categories, products } from "./const";
 import Footer from "./component/Footer";
-import Header from "./component/Header";
 import CarouselOfferPrice from "./component/CarouselOfferPrice";
 import Product from "./component/product";
 import { Provider } from "react-redux";
-import store from "./redux/store";
+import store from "./index";
+import { connect } from "react-redux";
 
-function Home() {
+function Home({ categories, products }) {
   return (
     <Provider store={store}>
-      <Header />
       <div>
         <div className="hero">
           <div className="hero__container">
@@ -28,9 +27,9 @@ function Home() {
           </div>
         </div>
         <div className="main">
-          {/* {categories.map((props) => (
-            // <Category category={props} key={props.id} />
-          ))} */}
+          {categories.map((props) => (
+            <Category category={props} key={props.id} />
+          ))}
         </div>
         <h2 className="title">Promos</h2>
         <div>
@@ -42,10 +41,15 @@ function Home() {
             <Product products={props} key={props.id} />
           ))}
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </Provider>
   );
 }
-
-export default Home;
+const mapStatetoProps = (state) => {
+  return {
+    categories: state.categories,
+    products: state.products,
+  };
+};
+export default connect(mapStatetoProps)(Home);

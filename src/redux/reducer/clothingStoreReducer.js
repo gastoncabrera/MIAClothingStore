@@ -23,4 +23,15 @@ const clothing_shop = (state = default_clothing_shop, action) => {
       return state;
   }
 };
+// Puede ser que falte exportar shop de const.js
+// const default_clothing_add = {
+//   shop: [],
+// };
+// const clothing_add = (state = default_clothing_add, action) => {
+//   switch (action.type) {
+//     case value:
+
+//     default:
+//   }
+// };
 export default clothing_shop;

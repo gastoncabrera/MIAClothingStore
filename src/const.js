@@ -1,3 +1,6 @@
+const default_clothing_shop = {
+  cuantity: 0,
+};
 const categories = [
   {
     id: 1,
@@ -139,4 +142,5 @@ const products = [
     colors: [`${colors[1].name}`],
   },
 ];
-export { products, categories, colors, sizes };
+const shop = [];
+export { products, categories, colors, sizes, shop, default_clothing_shop };

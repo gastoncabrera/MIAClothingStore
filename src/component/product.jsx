@@ -2,20 +2,14 @@ import React from "react";
 import "../sass/pages/home.scss";
 import PercentajeOffer from "./PercentajeOffer";
 import { connect } from "react-redux";
-// import { Provider } from "react-redux";
-// import store from "../redux/store";
 
-import {
-  buy_clothes_action,
-  return_clothes_action,
-} from "../redux/actions/clothingStoreActions";
+import { addShop } from "../redux/actions/action";
 import { Component } from "react";
 class Product extends Component {
   render() {
     const { products } = this.props;
 
     return (
-      // <Provider store={store}></Provider>
       <div className="product__container">
         <img src={products.images} alt="remera" className="product__image" />
         <span className="product__off">
@@ -30,7 +24,7 @@ class Product extends Component {
         </span>
         <div
           className="product__cart"
-          onClick={() => this.props.buy_clothes_action(1)}
+          onClick={() => this.props.addShop({ products })}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +48,6 @@ class Product extends Component {
   }
 }
 const mapDispatchToProps = {
-  buy_clothes_action,
-  return_clothes_action,
+  addShop,
 };
 export default connect(null, mapDispatchToProps)(Product);
