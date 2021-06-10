@@ -19,9 +19,26 @@
     display: flex;
     justify-content: space-between;
   }
+  &__card {
+    position: relative;
+  }
+  &__quantityShopping {
+    position: absolute;
+    top: -50%;
+    right: -40%;
+    z-index: 1;
+    color: white;
+    background-color: gray;
+    padding: 0 0.3rem;
+    border-radius: 50%;
+  }
 }
 
 .icon-list {
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50%;
+}
+.product__off {
+  display: flex;
+  align-items: stretch;
 }

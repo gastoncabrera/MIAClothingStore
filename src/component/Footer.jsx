@@ -1,6 +1,7 @@
 import React from "react";
 import "../sass/pages/home.scss";
 import logo from "../assets/images/logo.jpeg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -32,12 +33,12 @@ const Footer = () => {
         </a>
       </div>
       <div className="footer__items">
-        <a className="footer__link" href="/">
+        <Link to="/" className="footer__link" href="/">
           Inicio
-        </a>
-        <a className="footer__link" href="/">
+        </Link>
+        <Link to="/productos" className="footer__link" href="/">
           Productos
-        </a>
+        </Link>
       </div>
       <img className="footer__image" src={logo} alt="Logo de MIA" />
     </div>

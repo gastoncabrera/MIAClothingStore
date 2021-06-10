@@ -14,27 +14,27 @@ const Filter = () => {
       </div>
       <div className="filterSelect__size">
         <p>Talles:</p>
-        <label for="size--s" className="size">
+        <label htmlFor="size--s" className="size">
           <input type="checkbox" id="size--s" />S
         </label>
-        <label for="size--m" className="size">
+        <label htmlFor="size--m" className="size">
           <input type="checkbox" id="size--m" />M
         </label>
-        <label for="size--l" className="size">
+        <label htmlFor="size--l" className="size">
           <input type="checkbox" id="size--l" />L
         </label>
       </div>
       <div className="filterSelect__color">
         <p>Colores:</p>
-        <label for="color--white" className="color">
+        <label htmlFor="color--white" className="color">
           <input type="checkbox" id="color--white" />
           Blanco
         </label>
-        <label for="color--blue" className="color">
+        <label htmlFor="color--blue" className="color">
           <input type="checkbox" id="color--blue" />
           Azul
         </label>
-        <label for="color--black" className="color">
+        <label htmlFor="color--black" className="color">
           <input type="checkbox" id="color--black" />
           Negro
         </label>

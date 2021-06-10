@@ -1,8 +1,26 @@
-.header {
-  background-color: white;
+.ejXxNI {
+  background-color: gray !important;
+  box-shadow: 0 0 1px 3px rgba($color: black, $alpha: 0.6) !important;
+}
+.ejXxNI:hover,
+.ejXxNI:focus {
+  box-shadow: 0 0 1px 3px rgba($color: black, $alpha: 0.6) !important;
+  background-color: gray !important;
+}
+.cGKbZh {
+  background-color: gray !important;
+}
+.cGKbZh:hover:enabled {
+  background-color: gray !important;
 }
 .title {
   padding-top: 7rem;
+}
+.productsHome__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
 }
 .searchFilter__container {
   display: flex;
@@ -45,13 +63,14 @@
   .searchFilter__container {
     flex-direction: row;
     justify-content: center;
+    align-items: flex-start;
   }
 }
 @include breakpoint(md) {
   .products__container {
     display: flex;
     flex-wrap: nowrap;
-    padding-left: 2rem;
+    gap: 2rem;
   }
   .searchFilter__container {
     margin: 1rem;
@@ -94,5 +113,13 @@
   }
   .color input {
     margin-right: 0.5rem;
+  }
+  .productsFilter__container {
+    width: 77vw;
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

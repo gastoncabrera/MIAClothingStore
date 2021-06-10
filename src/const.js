@@ -59,55 +59,84 @@ const sizes = [
 const products = [
   {
     id: 1,
-    title: "Camisa Clarkia VCP",
+    title: "Jeans azul",
     slug: "camisa-clarkia-vcp",
-    normalPrice: "1800",
-    offerPrice: null,
+    normalPrice: 1800,
+    offerPricePrice: 1300,
+    offerPrice: true,
     images:
       "https://cdn.pixabay.com/photo/2017/11/23/03/17/christmas-2971961_960_720.jpg",
 
     sizes: [`${sizes[0].size} ${sizes[1].size} ${sizes[2].size}`],
-    // categories: [1],
-    // colors: [1, 2],
-  },
-  {
-    id: 3,
-    title: "Remera Lisa",
-    slug: "camisa-clarkia-vcp",
-    normalPrice: "1100",
-    offerPrice: null,
-    images:
-      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?cs=srgb&dl=pexels-jonathan-faria-2220316.jpg&fm=jpg",
-
-    sizes: [`${sizes[0].size}`],
-    // categories: 1,
-    // colors: 2,
-  },
-  {
-    id: 4,
-    title: "Remera Lisa",
-    slug: "camisa-clarkia-vcp",
-    normalPrice: "1100",
-    offerPrice: null,
-    images:
-      "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?cs=srgb&dl=pexels-jonathan-faria-2220316.jpg&fm=jpg",
-
-    sizes: [`${sizes[0].size}`],
-    // categories: 1,
-    // colors: 2,
+    categories: [`${categories[0].name}`],
+    colors: [`${colors[1].name}`],
   },
   {
     id: 2,
-    title: "Remera Lisa",
+    title: "Jeans rojo",
     slug: "camisa-clarkia-vcp",
-    normalPrice: "1100",
-    offerPrice: null,
+    normalPrice: 1100,
+    offerPricePrice: 990,
+    offerPrice: true,
     images:
       "https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?cs=srgb&dl=pexels-jonathan-faria-2220316.jpg&fm=jpg",
 
     sizes: [`${sizes[0].size}`],
-    // categories: 1,
+    categories: [`${categories[0].name}`],
     // colors: 2,
+  },
+  {
+    id: 3,
+    title: "Cinturon clasico",
+    slug: "camisa-clarkia-vcp",
+    normalPrice: 700,
+    offerPricePrice: 630,
+    offerPrice: true,
+    images:
+      "https://images.pexels.com/photos/1564149/pexels-photo-1564149.jpeg?cs=srgb&dl=pexels-chelsi-peter-1564149.jpg&fm=jpg",
+
+    sizes: [`${sizes[0].size}`],
+    categories: [`${categories[3].name}`],
+    colors: [`${colors[1].name}`],
+  },
+  {
+    id: 4,
+    title: "Cinturon moderno",
+    slug: "Cinturon moderno",
+    normalPrice: 900,
+    offerPrice: null,
+    images:
+      "https://images.pexels.com/photos/2343826/pexels-photo-2343826.jpeg?cs=srgb&dl=pexels-brianna-amick-2343826.jpg&fm=jpg",
+
+    sizes: [`${sizes[0].size}`],
+    categories: [`${categories[3].name}`],
+    colors: [`${colors[1].name}`],
+  },
+  {
+    id: 5,
+    title: "Remera Blanca",
+    slug: "Remera Blanca",
+    normalPrice: 900,
+    offerPrice: null,
+    images:
+      "https://images.pexels.com/photos/6833457/pexels-photo-6833457.jpeg?cs=srgb&dl=pexels-dimitry-zub-6833457.jpg&fm=jpg",
+
+    sizes: [`${sizes[0].size}`],
+    categories: [`${categories[1].name}`],
+    colors: [`${colors[1].name}`],
+  },
+  {
+    id: 6,
+    title: "Remera Blanca",
+    slug: "Remera Blanca",
+    normalPrice: 900,
+    offerPrice: null,
+    images:
+      "https://images.pexels.com/photos/6833457/pexels-photo-6833457.jpeg?cs=srgb&dl=pexels-dimitry-zub-6833457.jpg&fm=jpg",
+
+    sizes: [`${sizes[1].size}`],
+    categories: [`${categories[1].name}`],
+    colors: [`${colors[1].name}`],
   },
 ];
 export { products, categories, colors, sizes };

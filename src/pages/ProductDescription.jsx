@@ -6,7 +6,6 @@ import Footer from "../component/Footer";
 const ProductDescription = () => {
   return (
     <Fragment>
-      <Header />
       <div className="container__shop">
         <div>
           <div className="image__container"></div>
@@ -45,17 +44,17 @@ const ProductDescription = () => {
           <div>
             <div className="description__size">
               <div className="size">
-                <input type="radio" />S
+                <input type="checkbox" />S
               </div>
               <div className="size">
-                <input type="radio" />M
+                <input type="checkbox" />M
               </div>
               <div className="size">
-                <input type="radio" />L
+                <input type="checkbox" />L
               </div>
             </div>
           </div>
-          <p className="description__price">Total:$1900</p>
+          <p className="description__price">Total: $1900</p>
           <button className="description__addShop">Agregar al carrito</button>
         </div>
       </div>

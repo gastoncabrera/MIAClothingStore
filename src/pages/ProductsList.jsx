@@ -3,11 +3,12 @@ import Header from "../component/Header";
 import "../sass/pages/productsList.scss";
 import Filter from "../component/Filter";
 import Footer from "../component/Footer";
+import { products } from "../const";
+import Product from "../component/product";
 
 function ProductsList() {
   return (
     <Fragment>
-      <Header />
       <h1 className="title">Productos</h1>
       <div className="products__container">
         <div className="searchFilter__container">
@@ -17,7 +18,7 @@ function ProductsList() {
               width="1rem"
               height="1rem"
               fill="gray"
-              class="search__image"
+              className="search__image"
               viewBox="0 0 16 16"
             >
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -28,46 +29,10 @@ function ProductsList() {
             <Filter />
           </div>
         </div>
-        <div>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis
-            quasi consequuntur dolorem exercitationem sapiente nam fugiat
-            corporis dolore est reiciendis vero aspernatur, necessitatibus
-            officiis iusto in molestias! Similique, fuga distinctio. Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Officia magni molestiae
-            nam ducimus eos eum laboriosam ipsum voluptas natus nulla, iusto
-            asperiores quis esse voluptatibus fugiat doloribus cupiditate
-            reiciendis consequatur. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Officia magni molestiae nam ducimus eos eum
-            laboriosam ipsum voluptas natus nulla, iusto asperiores quis esse
-            voluptatibus fugiat doloribus cupiditate reiciendis consequatur.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-            magni molestiae nam ducimus eos eum laboriosam ipsum voluptas natus
-            nulla, iusto asperiores quis esse voluptatibus fugiat doloribus
-            cupiditate reiciendis consequatur. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Officia magni molestiae nam ducimus
-            eos eum laboriosam ipsum voluptas natus nulla, iusto asperiores quis
-            esse voluptatibus fugiat doloribus cupiditate reiciendis
-            consequatur. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Officia magni molestiae nam ducimus eos eum laboriosam ipsum
-            voluptas natus nulla, iusto asperiores quis esse voluptatibus fugiat
-            doloribus cupiditate reiciendis consequatur. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Officia magni molestiae nam
-            ducimus eos eum laboriosam ipsum voluptas natus nulla, iusto
-            asperiores quis esse voluptatibus fugiat doloribus cupiditate
-            reiciendis consequatur. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Officia magni molestiae nam ducimus eos eum
-            laboriosam ipsum voluptas natus nulla, iusto asperiores quis esse
-            voluptatibus fugiat doloribus cupiditate reiciendis consequatur.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-            magni molestiae nam ducimus eos eum laboriosam ipsum voluptas natus
-            nulla, iusto asperiores quis esse voluptatibus fugiat doloribus
-            cupiditate reiciendis consequatur. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Officia magni molestiae nam ducimus
-            eos eum laboriosam ipsum voluptas natus nulla, iusto asperiores quis
-            esse voluptatibus fugiat doloribus cupiditate reiciendis
-            consequatur.
-          </p>
+        <div className="productsFilter__container">
+          {products.map((props) => (
+            <Product products={props} key={props.id} />
+          ))}
         </div>
       </div>
       <Footer />
