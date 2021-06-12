@@ -4,6 +4,7 @@ import PercentajeOffer from "./PercentajeOffer";
 import { connect } from "react-redux";
 
 import { addShop } from "../redux/actions/action";
+import { add_buy } from "../redux/actions/action";
 import { Component } from "react";
 class Product extends Component {
   render() {
@@ -12,19 +13,25 @@ class Product extends Component {
     return (
       <div className="product__container">
         <img src={products.images} alt="remera" className="product__image" />
-        <span className="product__off">
-          <PercentajeOffer
-            props={
-              Math.round(
-                (products.offerPricePrice * 100) / products.normalPrice
-              ) - 100
-            }
-          />
-          %
-        </span>
+        {products.offerPrice ? (
+          <span className="product__off">
+            <PercentajeOffer
+              props={
+                Math.round(
+                  (products.offerPricePrice * 100) / products.normalPrice
+                ) - 100
+              }
+            />
+            %
+          </span>
+        ) : (
+          true
+        )}
         <div
           className="product__cart"
-          onClick={() => this.props.addShop({ products })}
+          onClick={() => (
+            this.props.addShop({ products }), this.props.add_buy(1)
+          )}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,15 +46,21 @@ class Product extends Component {
         </div>
         <p className="product__title">{products.title}</p>
         <div className="product__price">
-          <p className="product__offerprice"></p>
+          {products.offerPricePrice ? (
+            <p className="product__offerprice">${products.offerPricePrice}</p>
+          ) : (
+            true
+          )}
           <p className="product__normalprice">${products.normalPrice}</p>
         </div>
         <span className="product__size">Talles: {products.sizes}</span>
+        {console.log(add_buy(1))};
       </div>
     );
   }
 }
 const mapDispatchToProps = {
   addShop,
+  add_buy,
 };
 export default connect(null, mapDispatchToProps)(Product);

@@ -1,17 +1,23 @@
 import "./sass/pages/home.scss";
 import hero from "./assets/images/heroimg.jpg";
 import Category from "./component/Category";
-// import { categories, products } from "./const";
 import Footer from "./component/Footer";
 import CarouselOfferPrice from "./component/CarouselOfferPrice";
 import Product from "./component/product";
 import { Provider } from "react-redux";
 import store from "./index";
 import { connect } from "react-redux";
+import { useState } from "react";
+import Header from "./component/Header";
 
 function Home({ categories, products }) {
+  // const [sidebar, setsidebar] = useState(false);
+
+  // const showSidebar = () => setsidebar(!sidebar);
+
   return (
     <Provider store={store}>
+      {/* <Header showSidebar={showSidebar} /> */}
       <div>
         <div className="hero">
           <div className="hero__container">
@@ -38,7 +44,7 @@ function Home({ categories, products }) {
         <h2 className="title">Productos</h2>
         <div className="productsHome__container">
           {products.map((props) => (
-            <Product products={props} key={props.id} />
+            <Product products={props} key={props.id} isNormalPrice />
           ))}
         </div>
         <Footer />

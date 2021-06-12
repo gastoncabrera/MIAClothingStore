@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import Header from "../component/Header";
 import "../sass/pages/productsList.scss";
 import Filter from "../component/Filter";
 import Footer from "../component/Footer";

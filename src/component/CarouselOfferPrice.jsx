@@ -16,7 +16,7 @@ class CarouselOfferPrice extends Component {
       { width: 800, itemsToShow: 3 },
       { width: 1200, itemsToShow: 4 },
     ];
-    const offerPrice = products.filter((x) => x.offerPrice == true);
+    const offerPrice = products.filter((x) => x.offerPrice === true);
 
     return (
       <Carousel breakPoints={breakPoints}>

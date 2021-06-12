@@ -1,11 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Nav from "./pages/Nav";
-import Home from "./Home";
-
 import { createStore } from "redux";
 import reducer from "./redux/reducer/reducer";
 import { Provider } from "react-redux";

@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import Header from "../component/Header";
 import "../sass/pages/productDescription.scss";
 import Footer from "../component/Footer";
 

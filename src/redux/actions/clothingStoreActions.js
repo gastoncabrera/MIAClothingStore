@@ -14,14 +14,3 @@ export const return_clothes_action = (cant) => {
     payload: cant,
   };
 };
-
-// export const ADD_CLOTHES = "ADD_CLOTHES";
-// export const DELETE_CLOTHES = "DELETE_CLOTHES";
-
-// // Al pasar la accion paso la prenda con el id
-// export const add_clothes_action = (props) => {
-//   return {
-//     type: BUY_CLOTHES,
-//     payload: props,
-//   };
-// };
