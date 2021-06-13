@@ -1,16 +1,20 @@
 import React, { Fragment } from "react";
 import "../sass/pages/productDescription.scss";
 import Footer from "../component/Footer";
+import { connect } from "react-redux";
 
-const ProductDescription = () => {
+const ProductDescription = ({ cart }) => {
+  console.log(cart[0]);
   return (
     <Fragment>
       <div className="container__shop">
         <div>
-          <div className="image__container"></div>
+          <div className="image__container">
+            <img src={cart[cart.length - 1].products.images} />
+          </div>
         </div>
         <div className="description__container">
-          <h5 className="description__title">Jean Italian</h5>
+          <h5 className="description__title">{cart[0].products.title}</h5>
           <div className="description__quantity">
             <div className="removeQuantity btn">
               <svg
@@ -18,7 +22,7 @@ const ProductDescription = () => {
                 width="2rem"
                 height="2rem"
                 fill="currentColor"
-                class="bi bi-dash-circle"
+                className="bi bi-dash-circle"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -32,7 +36,7 @@ const ProductDescription = () => {
                 width="2rem"
                 height="2rem"
                 fill="currentColor"
-                class="bi bi-plus-circle"
+                className="bi bi-plus-circle"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -61,4 +65,10 @@ const ProductDescription = () => {
     </Fragment>
   );
 };
-export default ProductDescription;
+const mapStatetoPropers = (state) => {
+  return {
+    cart: state.shop,
+  };
+};
+export default connect(mapStatetoPropers)(ProductDescription);
+// export default ProductDescription;

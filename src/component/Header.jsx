@@ -72,7 +72,6 @@ function Header({ buy, cart }) {
           </div>
         </div>
       </div>
-      {console.log(buy)}
     </div>
   );
 }
@@ -82,10 +81,4 @@ const mapStatetoPropers = (state) => {
     buy: state.default_clothing_shop,
   };
 };
-// const mapStatetoPropersShop = (state) => {
-//   return {
-//     shop: state.shop,
-//   };
-// };
 export default connect(mapStatetoPropers)(Header);
-// , mapStatetoPropersShop

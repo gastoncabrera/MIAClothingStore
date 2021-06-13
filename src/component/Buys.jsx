@@ -6,7 +6,7 @@ const Buys = ({ products }) => {
     <>
       <div className="container">
         <h1 className="title">{products.title}</h1>
-        <img className="images" src={products.images} />
+        <img className="images" src={products.images} alt="producto" />
         <p className="price">{products.normalPrice}</p>
       </div>
     </>

@@ -8,7 +8,7 @@ const reducer = (state, action) => {
     case `ADD_BUY`:
       return {
         ...state,
-        cuantity: state.default_clothing_shop + action.payload,
+        cuantity: state.default_clothing_shop.cuantity + action.payload.cant,
       };
 
     default:

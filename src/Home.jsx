@@ -7,17 +7,10 @@ import Product from "./component/product";
 import { Provider } from "react-redux";
 import store from "./index";
 import { connect } from "react-redux";
-import { useState } from "react";
-import Header from "./component/Header";
 
 function Home({ categories, products }) {
-  // const [sidebar, setsidebar] = useState(false);
-
-  // const showSidebar = () => setsidebar(!sidebar);
-
   return (
     <Provider store={store}>
-      {/* <Header showSidebar={showSidebar} /> */}
       <div>
         <div className="hero">
           <div className="hero__container">

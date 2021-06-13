@@ -2,17 +2,28 @@ import React from "react";
 import "../sass/pages/home.scss";
 import PercentajeOffer from "./PercentajeOffer";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { addShop } from "../redux/actions/action";
 import { add_buy } from "../redux/actions/action";
 import { Component } from "react";
+import ProductDescription from "../pages/ProductDescription";
 class Product extends Component {
   render() {
     const { products } = this.props;
+    console.log(products);
 
     return (
       <div className="product__container">
-        <img src={products.images} alt="remera" className="product__image" />
+        <Link to="/producto">
+          <img
+            src={products.images}
+            alt="remera"
+            className="product__image"
+            onClick={() => this.props.addShop({ products })}
+          />
+        </Link>
+
         {products.offerPrice ? (
           <span className="product__off">
             <PercentajeOffer
@@ -29,9 +40,7 @@ class Product extends Component {
         )}
         <div
           className="product__cart"
-          onClick={() => (
-            this.props.addShop({ products }), this.props.add_buy(1)
-          )}
+          onClick={() => this.props.addShop({ products })}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +63,9 @@ class Product extends Component {
           <p className="product__normalprice">${products.normalPrice}</p>
         </div>
         <span className="product__size">Talles: {products.sizes}</span>
-        {console.log(add_buy(1))};
+        <button onClick={() => this.props.add_buy(1)}>
+          agregar al carrito
+        </button>
       </div>
     );
   }
