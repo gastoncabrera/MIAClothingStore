@@ -62,13 +62,17 @@ function Header({ buy, cart }) {
             shop ? `container__cardShopOPen` : `container__cardShopClose`
           }
         >
-          <div className="shop__buttonClose" onClick={showShop}>
-            X
-          </div>
-          <div className="container__buys">
-            {cart.map((props) => (
-              <Buys products={props.products} key={props.products.id} />
-            ))}
+          <div className="container_cardShop">
+            <div className="shop__buttonClose" onClick={showShop}>
+              <p>X</p>
+            </div>
+            <div className="container__buys">
+              {cart.map((props) => (
+                <Buys products={props} key={props.id} />
+              ))}
+            </div>
+            <p className="shop__total">Total $</p>
+            <button className="shop__finalizeBuy">Finalizar Compra</button>
           </div>
         </div>
       </div>

@@ -5,6 +5,11 @@ const reducer = (state, action) => {
         ...state,
         shop: [...state.shop, action.payload],
       };
+    case `DELETE_SHOP`:
+      return {
+        ...state,
+        shop: [...state.shop.filter((item) => item.id !== action.payload)],
+      };
     case `ADD_BUY`:
       return {
         ...state,

@@ -12,7 +12,6 @@
     font-family: $font-primary;
     text-align: center;
     margin: 0;
-    padding: 1rem;
   }
   &__container {
     align-items: center;
@@ -21,6 +20,8 @@
   }
   &__card {
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
   &__quantityShopping {
     position: absolute;
@@ -34,7 +35,7 @@
   }
   &__sidebarOpen {
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     background-color: rgba($color: black, $alpha: 0.8);
     position: fixed;
     top: 0;
@@ -44,7 +45,7 @@
   }
   &__sidebarClose {
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     background-color: rgba($color: black, $alpha: 0.8);
     position: fixed;
     top: 0;
@@ -84,6 +85,9 @@
     padding: 3rem 0;
   }
 }
+.container_cardShop {
+  width: 100vw;
+}
 .container__cardShopOPen {
   height: 100%;
   width: 100vw;
@@ -99,12 +103,13 @@
 .shop__buttonClose {
   font-size: 2rem;
   width: 20%;
-  margin-left: 2rem;
-  margin-top: 1rem;
   color: black;
-  justify-content: flex-end;
+  justify-content: end;
   cursor: pointer;
   overflow: hidden;
+  display: flex;
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
 }
 .container__cardShopClose {
   height: 100%;
@@ -119,16 +124,42 @@
 }
 .container__buys {
   overflow-y: scroll;
-  width: 100%;
+  width: 90%;
+  align-items: center;
+  margin-left: 0.8rem;
 }
 .shopping-cart {
   cursor: pointer;
+}
+
+.container_cardShop {
+  display: flex;
+  flex-direction: column;
+}
+.shop__total {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.shop__finalizeBuy {
+  width: 100%;
+  text-align: center;
+  border: none;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
 }
 @include breakpoint(sm) {
   .header__sidebarOpen {
     width: 30vw;
   }
-  .container__cardShopOPen {
+  .header__sidebarClose {
     width: 30vw;
+  }
+  .container__cardShopOPen {
+    width: 40vw;
+  }
+  .container__cardShopClose {
+    width: 40vw;
   }
 }

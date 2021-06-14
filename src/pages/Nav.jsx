@@ -12,9 +12,9 @@ function Nav() {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/productos" component={ProductsList} />
-          <Route exact path="/producto" component={ProductDescription} />
-          <Route exact path="/shop" component={Shop} />
+          <Route exact path="productos" component={ProductsList} />
+          <Route exact path="producto" component={ProductDescription} />
+          <Route exact path="shop" component={Shop} />
         </Switch>
       </Layout>
     </Router>
