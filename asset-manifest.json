@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/miaclothingstore/static/css/main.5bb099fe.chunk.css",
-    "main.js": "/miaclothingstore/static/js/main.c4a2a681.chunk.js",
-    "main.js.map": "/miaclothingstore/static/js/main.c4a2a681.chunk.js.map",
+    "main.js": "/miaclothingstore/static/js/main.71b1140a.chunk.js",
+    "main.js.map": "/miaclothingstore/static/js/main.71b1140a.chunk.js.map",
     "runtime-main.js": "/miaclothingstore/static/js/runtime-main.e28c8afa.js",
     "runtime-main.js.map": "/miaclothingstore/static/js/runtime-main.e28c8afa.js.map",
     "static/css/2.61b4cb56.chunk.css": "/miaclothingstore/static/css/2.61b4cb56.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.61b4cb56.chunk.css",
     "static/js/2.89a70bda.chunk.js",
     "static/css/main.5bb099fe.chunk.css",
-    "static/js/main.c4a2a681.chunk.js"
+    "static/js/main.71b1140a.chunk.js"
   ]
 }
