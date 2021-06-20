@@ -10,6 +10,7 @@ function Header({ buy, cart }) {
 
   const [shop, setshop] = useState(false);
   const showShop = () => setshop(!shop);
+
   return (
     <div className="header">
       <div className="header__container container">

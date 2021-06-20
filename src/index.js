@@ -13,6 +13,7 @@ import {
   sizes,
   shop,
   default_clothing_shop,
+  productVisibility,
 } from "./const";
 
 const store = createStore(reducer, {
@@ -22,13 +23,14 @@ const store = createStore(reducer, {
   sizes,
   shop,
   default_clothing_shop,
+  productVisibility,
 });
 
 export default store;
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store} key={products.id}>
       <Nav />
     </Provider>
   </React.StrictMode>,

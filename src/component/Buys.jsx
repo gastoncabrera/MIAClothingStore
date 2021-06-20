@@ -2,33 +2,23 @@ import React from "react";
 import "../sass/components/buys.scss";
 import { connect } from "react-redux";
 import { deleteShop } from "../redux/actions/action";
+import { shop } from "../const";
 
 const Buys = (products) => {
-  const { id, title, images, offerPricePrice, offerPrice, normalPrice } =
-    products.products;
+  const { id, title, images, offerPricePrice, normalPrice } = products.products;
   const handleDeleteBuy = (id) => {
     products.deleteShop(id);
-    console.log(products.deleteShop(id));
   };
-  // function price() {
-  //   if (buy.products.offerPrice == true) {
-  //     const offerPrice = buy.products.offerPricePrice;
-  //     console.log(offerPrice);
-  //   } else {
-  //     const offerPrice = buy.products.normalPrice;
-  //     console.log(offerPrice);
-  //   }
-  // }
   return (
     <>
       <div className="container__buy">
         <img className="buy__images" src={images} alt="producto" />
         <div className="container__description">
           <h1 className="buy__title">{title}</h1>
-          {offerPrice == true ? (
-            <p className="buy__price">${offerPricePrice}</p>
-          ) : (
+          {offerPricePrice === null ? (
             <p className="buy__price">${normalPrice}</p>
+          ) : (
+            <p className="buy__price">${offerPricePrice}</p>
           )}
         </div>
         <div className="buy__delete">

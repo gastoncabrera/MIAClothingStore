@@ -7,20 +7,20 @@ import { Link } from "react-router-dom";
 import { addShop } from "../redux/actions/action";
 import { add_buy } from "../redux/actions/action";
 import { Component } from "react";
-import ProductDescription from "../pages/ProductDescription";
 class Product extends Component {
   render() {
-    const { products } = this.props;
-
+    const { product } = this.props;
     const {
       id,
+      shop,
       images,
       offerPricePrice,
       normalPrice,
       sizes,
       title,
       offerPrice,
-    } = products;
+    } = product;
+
     const handleAddShop = () => {
       this.props.addShop({
         id,
@@ -33,21 +33,22 @@ class Product extends Component {
     };
     return (
       <div className="product__container">
-        <Link to="/producto">
+        <Link to={`/producto/${id}`}>
           <img
             src={images}
             alt="remera"
             className="product__image"
-            onClick={() => this.props.addShop({ products })}
+            // prueba para vear la imagen en grande
+            onClick={() => this.props.addShop({ product })}
           />
         </Link>
 
         {offerPrice ? (
           <span className="product__off">
             <PercentajeOffer
-              props={Math.round((offerPricePrice * 100) / normalPrice) - 100}
+              props={100 - Math.round((offerPricePrice * 100) / normalPrice)}
             />
-            %
+            % OFF
           </span>
         ) : (
           true
@@ -67,13 +68,21 @@ class Product extends Component {
         <p className="product__title">{title}</p>
         <div className="product__price">
           {offerPricePrice ? (
-            <p className="product__offerprice">${offerPricePrice}</p>
+            <p className={"product__offerprice"}>${offerPricePrice}</p>
           ) : (
             true
           )}
-          <p className="product__normalprice">${normalPrice}</p>
+          <p
+            className={
+              offerPricePrice !== null ? "example" : "product__offerprice"
+            }
+          >
+            ${normalPrice}
+          </p>
         </div>
-        <span className="product__size">Talles: {sizes}</span>
+        <span className="product__size">
+          Talles: {sizes.map((size) => size.size).join(" - ")}
+        </span>
       </div>
     );
   }
@@ -82,4 +91,5 @@ const mapDispatchToProps = {
   addShop,
   add_buy,
 };
+
 export default connect(null, mapDispatchToProps)(Product);

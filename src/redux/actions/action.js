@@ -12,3 +12,7 @@ export const add_buy = (cant) => {
     payload: cant,
   };
 };
+export const getImageSource = (payload) => ({
+  type: "GET_IMAGE_SOURCE",
+  payload,
+});

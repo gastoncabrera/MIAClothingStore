@@ -15,6 +15,13 @@ const reducer = (state, action) => {
         ...state,
         cuantity: state.default_clothing_shop.cuantity + action.payload.cant,
       };
+    case `GET_IMAGE_SOURCE`:
+      return {
+        ...state,
+        image: state.products.find(
+          (item) => item.id === Number(action.payload)
+        ),
+      };
 
     default:
       return state;

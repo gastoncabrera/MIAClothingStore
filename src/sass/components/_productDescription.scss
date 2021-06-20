@@ -12,7 +12,7 @@ img {
   padding: 1rem;
 }
 .image__container {
-  height: 100vw;
+  height: 100%;
   width: 90vw;
 }
 .description__container {
@@ -33,6 +33,7 @@ img {
 }
 .btn {
   padding: 0;
+  user-select: none;
 }
 .description__size {
   font-size: 1.2rem;
@@ -41,6 +42,8 @@ img {
 }
 .size {
   padding: 0 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 .description__price {
   margin: 1rem 0;
@@ -66,6 +69,6 @@ img {
     margin: 0 auto;
   }
   .description__size {
-    justify-content: space-between;
+    justify-content: center;
   }
 }

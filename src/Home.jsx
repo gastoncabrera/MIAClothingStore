@@ -7,8 +7,9 @@ import Product from "./component/product";
 import { Provider } from "react-redux";
 import store from "./index";
 import { connect } from "react-redux";
-
-function Home({ categories, products }) {
+import { categories, productsPopulated } from "./const";
+// { categories, products }
+function Home() {
   return (
     <Provider store={store}>
       <div>
@@ -36,8 +37,8 @@ function Home({ categories, products }) {
         </div>
         <h2 className="title">Productos</h2>
         <div className="productsHome__container">
-          {products.map((props) => (
-            <Product products={props} key={props.id} isNormalPrice />
+          {productsPopulated.map((product) => (
+            <Product product={product} key={product.id} isNormalPrice />
           ))}
         </div>
         <Footer />
@@ -47,8 +48,8 @@ function Home({ categories, products }) {
 }
 const mapStatetoProps = (state) => {
   return {
-    categories: state.categories,
-    products: state.products,
+    // categories: state.categories,
+    // products: state.products,
   };
 };
 export default connect(mapStatetoProps)(Home);

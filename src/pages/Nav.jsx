@@ -1,21 +1,21 @@
 import React from "react";
 import Home from "../Home";
 import ProductsList from "./ProductsList";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProductDescription from "./ProductDescription";
 import Layout from "../component/Layout";
-import Shop from "../component/Shop";
+import Prueba from "../component/prueba";
 
 function Nav() {
   return (
     <Router>
       <Layout>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="productos" component={ProductsList} />
-          <Route exact path="producto" component={ProductDescription} />
-          <Route exact path="shop" component={Shop} />
-        </Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/productos" component={ProductsList} />
+        <Route exact path="/producto/:id" component={ProductDescription} />
+        <Route exact path="/prueba" component={Prueba} />
       </Layout>
     </Router>
   );
