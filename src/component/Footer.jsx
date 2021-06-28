@@ -33,10 +33,10 @@ const Footer = () => {
         </a>
       </div>
       <div className="footer__items">
-        <Link to="/" className="footer__link" href="/">
+        <Link to="/" className="footer__link">
           Inicio
         </Link>
-        <Link to="/productos" className="footer__link" href="/">
+        <Link to="/productos" className="footer__link">
           Productos
         </Link>
       </div>

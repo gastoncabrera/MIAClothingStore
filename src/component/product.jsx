@@ -5,14 +5,12 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { addShop } from "../redux/actions/action";
-import { add_buy } from "../redux/actions/action";
 import { Component } from "react";
 class Product extends Component {
   render() {
     const { product } = this.props;
     const {
       id,
-      shop,
       images,
       offerPricePrice,
       normalPrice,
@@ -21,26 +19,10 @@ class Product extends Component {
       offerPrice,
     } = product;
 
-    const handleAddShop = () => {
-      this.props.addShop({
-        id,
-        title,
-        images,
-        offerPricePrice,
-        normalPrice,
-        sizes,
-      });
-    };
     return (
       <div className="product__container">
         <Link to={`/producto/${id}`}>
-          <img
-            src={images}
-            alt="remera"
-            className="product__image"
-            // prueba para vear la imagen en grande
-            onClick={() => this.props.addShop({ product })}
-          />
+          <img src={images} alt="remera" className="product__image" />
         </Link>
 
         {offerPrice ? (
@@ -53,7 +35,7 @@ class Product extends Component {
         ) : (
           true
         )}
-        <div className="product__cart" onClick={handleAddShop}>
+        <div className="product__cart">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1.5rem"
@@ -89,7 +71,6 @@ class Product extends Component {
 }
 const mapDispatchToProps = {
   addShop,
-  add_buy,
 };
 
 export default connect(null, mapDispatchToProps)(Product);

@@ -84,7 +84,7 @@ const products = [
     images:
       "https://i.ibb.co/f08f2Gk/Whats-App-Image-2021-06-14-at-20-51-01.jpg",
 
-    sizes: [1],
+    sizes: [2],
     categories: [1],
     colors: [2],
   },
@@ -144,7 +144,6 @@ const products = [
     colors: [2],
   },
 ];
-const shop = [];
 const productVisibility = [];
 const productsPopulated = products.map((productItem) => {
   const _categories = categories.filter((categoryItem) =>
@@ -169,7 +168,6 @@ export {
   categories,
   colors,
   sizes,
-  shop,
   default_clothing_shop,
   productVisibility,
   productsPopulated,

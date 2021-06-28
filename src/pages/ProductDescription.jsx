@@ -2,8 +2,9 @@ import React, { Fragment, useEffect, useState } from "react";
 import "../sass/pages/productDescription.scss";
 import Footer from "../component/Footer";
 import { connect } from "react-redux";
-import { getImageSource } from "../redux/actions/action";
 import { productsPopulated } from "../const";
+import { addShop } from "../redux/actions/action";
+import { modifyShop } from "../redux/actions/action";
 
 const ProductDescription = (props) => {
   const [product, setProduct] = useState(null);
@@ -16,11 +17,23 @@ const ProductDescription = (props) => {
 
   const [quantity, setquantity] = useState(1);
 
-  const [size, setsize] = useState({ size: `` });
+  const [size, setsize] = useState({ talle: ` ` });
   const chosenSize = (event) => {
     setsize({
       ...size,
       [event.target.name]: event.target.value,
+    });
+  };
+
+  const addShop = (event) => {
+    event.preventDefault();
+  };
+
+  const handleAddShop = () => {
+    props.addShop({
+      product,
+      quantity,
+      size,
     });
   };
 
@@ -29,12 +42,12 @@ const ProductDescription = (props) => {
       <div className="container__shop">
         <div>
           <div className="image__container">
-            <img src={product.images} alt="imagen de" />
+            <img src={product.images} alt={`imagen de ${product.title}`} />
           </div>
         </div>
         <div className="description__container">
           <h5 className="description__title">{product.title}</h5>
-          <form>
+          <form onSubmit={addShop}>
             <div className="description__quantity">
               <button className="removeQuantity btn" disabled={quantity <= 1}>
                 <svg
@@ -66,18 +79,18 @@ const ProductDescription = (props) => {
                 </svg>
               </button>
             </div>
+
             <div>
               <div className="description__size">
                 <div className="size">
                   <div className="size__buttonContainer">
                     <select onChange={chosenSize}>
-                      {console.log(size)}
+                      <option disabled=" ">Talle</option>
                       {product.sizes.map((props) => (
                         <option
                           className="size__button"
                           key={props.id}
                           value={props.size}
-                          name="size"
                         >
                           {props.size}
                         </option>
@@ -98,7 +111,7 @@ const ProductDescription = (props) => {
             <button
               className="description__addShop"
               type="submit"
-              onClick={() => console.log({ quantity })}
+              onClick={handleAddShop}
             >
               Agregar al carrito
             </button>
@@ -108,19 +121,11 @@ const ProductDescription = (props) => {
       <Footer />
     </Fragment>
   ) : (
-    <h1>error</h1>
+    <h1>Producto no encontrado</h1>
   );
 };
-const mapStatetoPropers = (state) => {
-  return {
-    shop: state.shop,
-    visibility: state.productVisibility,
-  };
-};
 const mapDispatchToProps = {
-  getImageSource,
+  addShop,
 };
-export default connect(
-  mapStatetoPropers,
-  mapDispatchToProps
-)(ProductDescription);
+
+export default connect(null, mapDispatchToProps)(ProductDescription);

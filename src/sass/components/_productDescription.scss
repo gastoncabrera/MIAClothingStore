@@ -1,5 +1,5 @@
 .container__shop {
-  height: 100vh;
+  height: 100%;
   padding-top: 6rem;
   display: flex;
   flex-direction: column;
@@ -58,6 +58,7 @@ img {
   .container__shop {
     flex-direction: row;
     align-items: end;
+    height: 100vh;
   }
   .image__container {
     width: 60vw;

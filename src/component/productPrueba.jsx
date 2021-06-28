@@ -1,5 +1,5 @@
 import React from "react";
-import { categories, products, productsPopulated } from "../const";
+import { productsPopulated } from "../const";
 import Product from "./product";
 
 const ProductPrueba = (props) => {
@@ -13,13 +13,13 @@ const ProductPrueba = (props) => {
       {category ? (
         <>
           {productsFilter.map((props) => (
-            <Product product={props} />
+            <Product product={props} key={props.id} />
           ))}
         </>
       ) : (
         <>
           {productsPopulated.map((props) => (
-            <Product product={props} />
+            <Product product={props} key={props.id} />
           ))}
         </>
       )}

@@ -1,26 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import "../sass/components/buys.scss";
 import { connect } from "react-redux";
 import { deleteShop } from "../redux/actions/action";
-import { shop } from "../const";
+import { modifyShop } from "../redux/actions/action";
 
 const Buys = (products) => {
-  const { id, title, images, offerPricePrice, normalPrice } = products.products;
+  const { id, title, images, offerPricePrice, normalPrice, sizes } =
+    products.products.product;
+  const { quantity } = products.products;
+  const talle = products.products.size[""];
   const handleDeleteBuy = (id) => {
     products.deleteShop(id);
   };
+  const nuevotalle = () => {
+    if (talle === undefined) {
+      return sizes[0].size;
+    } else return talle;
+  };
+
+  const handleModifyShop = () => {
+    products.modifyShop({
+      quantity,
+    });
+  };
+  const [quantitymodify, setquantitymodify] = useState(quantity);
   return (
     <>
       <div className="container__buy">
         <img className="buy__images" src={images} alt="producto" />
         <div className="container__description">
           <h1 className="buy__title">{title}</h1>
+          <p>Talle: {nuevotalle()}</p>
+          Cantidad:
+          <div>
+            <button
+              disabled={quantity <= 1}
+              onClick={() => setquantitymodify(quantitymodify - 1)}
+            >
+              -
+            </button>
+            {quantitymodify}
+            <button
+              disabled={quantity > 2}
+              onClick={() => setquantitymodify(quantitymodify + 1)}
+            >
+              +
+            </button>
+          </div>
           {offerPricePrice === null ? (
-            <p className="buy__price">${normalPrice}</p>
+            <p className="buy__price">${normalPrice * quantitymodify}</p>
           ) : (
-            <p className="buy__price">${offerPricePrice}</p>
+            <p className="buy__price">${offerPricePrice * quantitymodify}</p>
           )}
         </div>
+        <button onClick={handleModifyShop(1)}>1</button>
         <div className="buy__delete">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,5 +77,6 @@ const Buys = (products) => {
 };
 const mapDispatchToProps = {
   deleteShop,
+  modifyShop,
 };
 export default connect(null, mapDispatchToProps)(Buys);

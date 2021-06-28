@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import store from "./index";
 import { connect } from "react-redux";
 import { categories, productsPopulated } from "./const";
-// { categories, products }
 function Home() {
   return (
     <Provider store={store}>

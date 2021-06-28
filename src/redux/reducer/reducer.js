@@ -10,17 +10,10 @@ const reducer = (state, action) => {
         ...state,
         shop: [...state.shop.filter((item) => item.id !== action.payload)],
       };
-    case `ADD_BUY`:
+    case `MODIFY_SHOP`:
       return {
         ...state,
-        cuantity: state.default_clothing_shop.cuantity + action.payload.cant,
-      };
-    case `GET_IMAGE_SOURCE`:
-      return {
-        ...state,
-        image: state.products.find(
-          (item) => item.id === Number(action.payload)
-        ),
+        shop: [...state.shop.assign((state.shop.quantity, action.payload))],
       };
 
     default:
