@@ -1,9 +1,29 @@
+function product(prop) {
+  const { product } = prop;
+  return product;
+}
+function quantity(prop) {
+  const { quantity } = prop;
+  return quantity;
+}
+function size(prop) {
+  const { size } = prop;
+  return size;
+}
+
 const reducer = (state, action) => {
   switch (action.type) {
     case `ADD_SHOP`:
       return {
         ...state,
-        shop: [...state.shop, action.payload],
+        shop: [
+          ...state.shop,
+          {
+            product: product(action.payload),
+            quantity: quantity(action.payload),
+            size: size(action.payload),
+          },
+        ],
       };
     case `DELETE_SHOP`:
       return {
@@ -13,7 +33,14 @@ const reducer = (state, action) => {
     case `MODIFY_SHOP`:
       return {
         ...state,
-        shop: [...state.shop.assign((state.shop.quantity, action.payload))],
+        shop: [
+          ...state.shop.map((item) => {
+            if (item.product.id == action.payload) {
+              item.quantity = item.quantity + 1;
+              return item;
+            }
+          }),
+        ],
       };
 
     default:

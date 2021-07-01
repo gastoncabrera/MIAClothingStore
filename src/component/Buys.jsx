@@ -4,25 +4,24 @@ import { connect } from "react-redux";
 import { deleteShop } from "../redux/actions/action";
 import { modifyShop } from "../redux/actions/action";
 
-const Buys = (products) => {
+const Buys = (product) => {
+  console.log(product.product.product);
   const { id, title, images, offerPricePrice, normalPrice, sizes } =
-    products.products.product;
-  const { quantity } = products.products;
-  const talle = products.products.size[""];
+    product.product.product;
+  const { quantity } = product.product;
+  // const talle = product.product.size[""];
   const handleDeleteBuy = (id) => {
-    products.deleteShop(id);
+    product.deleteShop(id);
   };
-  const nuevotalle = () => {
-    if (talle === undefined) {
-      return sizes[0].size;
-    } else return talle;
+  // const nuevotalle = () => {
+  //   if (talle === undefined) {
+  //     return sizes[0].size;
+  //   } else return talle;
+  // };
+  const handleModifyShop = (id) => {
+    product.modifyShop(id);
   };
 
-  const handleModifyShop = () => {
-    products.modifyShop({
-      quantity,
-    });
-  };
   const [quantitymodify, setquantitymodify] = useState(quantity);
   return (
     <>
@@ -30,7 +29,7 @@ const Buys = (products) => {
         <img className="buy__images" src={images} alt="producto" />
         <div className="container__description">
           <h1 className="buy__title">{title}</h1>
-          <p>Talle: {nuevotalle()}</p>
+          {/* <p>Talle: {nuevotalle()}</p> */}
           Cantidad:
           <div>
             <button
@@ -42,7 +41,7 @@ const Buys = (products) => {
             {quantitymodify}
             <button
               disabled={quantity > 2}
-              onClick={() => setquantitymodify(quantitymodify + 1)}
+              onClick={() => handleModifyShop(id)}
             >
               +
             </button>
@@ -53,7 +52,6 @@ const Buys = (products) => {
             <p className="buy__price">${offerPricePrice * quantitymodify}</p>
           )}
         </div>
-        <button onClick={handleModifyShop(1)}>1</button>
         <div className="buy__delete">
           <svg
             xmlns="http://www.w3.org/2000/svg"

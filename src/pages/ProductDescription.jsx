@@ -4,7 +4,6 @@ import Footer from "../component/Footer";
 import { connect } from "react-redux";
 import { productsPopulated } from "../const";
 import { addShop } from "../redux/actions/action";
-import { modifyShop } from "../redux/actions/action";
 
 const ProductDescription = (props) => {
   const [product, setProduct] = useState(null);
@@ -111,7 +110,7 @@ const ProductDescription = (props) => {
             <button
               className="description__addShop"
               type="submit"
-              onClick={handleAddShop}
+              onClick={() => handleAddShop()}
             >
               Agregar al carrito
             </button>

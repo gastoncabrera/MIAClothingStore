@@ -6,7 +6,6 @@ import CarouselOfferPrice from "./component/CarouselOfferPrice";
 import Product from "./component/product";
 import { Provider } from "react-redux";
 import store from "./index";
-import { connect } from "react-redux";
 import { categories, productsPopulated } from "./const";
 function Home() {
   return (
@@ -45,10 +44,5 @@ function Home() {
     </Provider>
   );
 }
-const mapStatetoProps = (state) => {
-  return {
-    // categories: state.categories,
-    // products: state.products,
-  };
-};
-export default connect(mapStatetoProps)(Home);
+
+export default Home;

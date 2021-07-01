@@ -73,7 +73,6 @@ function ProductsList(props) {
             <Product product={props} key={props.id} />
           ))} */}
           <ProductPrueba props={filter} />
-          {console.log(filter)}
         </div>
       </div>
       <Footer />
