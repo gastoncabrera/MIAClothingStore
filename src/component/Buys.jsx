@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../sass/components/buys.scss";
-import { connect } from "react-redux";
 // import { deleteShop } from "../store/actions/action";
 // import { modifyShop } from "../store/actions/action";
 
@@ -86,9 +85,5 @@ const Buys = (product) => {
   );
 };
 
-// const mapDispatchToProps = {
-//   deleteShop,
-//   modifyShop,
-// };
 
 export default Buys

@@ -4,6 +4,7 @@
   padding: 1rem 0;
   align-items: center;
 }
+
 .buy {
   &__images {
     height: 6rem;
@@ -11,19 +12,24 @@
     object-fit: contain;
     padding: 0;
   }
+
   &__title {
     font-size: 1rem;
   }
+
   &__price {
     font-size: 1rem;
   }
+
   &__delete {
     padding-left: 0.4rem;
   }
 }
+
 .container__description {
   text-align: center;
 }
+
 .container__description {
   align-items: center;
   display: flex;
@@ -31,6 +37,7 @@
   justify-content: center;
   margin-left: 0.5rem;
 }
+
 .deletebuton {
   display: flex;
   justify-content: center;

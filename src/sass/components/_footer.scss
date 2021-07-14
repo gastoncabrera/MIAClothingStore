@@ -9,10 +9,12 @@
     justify-content: center;
   }
 }
+
 .sociallink--intagram,
 .sociallink--facebook {
   margin: 1rem;
 }
+
 .footer__items {
   font-size: 1.3rem;
   font-weight: 400;
@@ -22,11 +24,13 @@
   align-items: center;
   margin: 1.5rem;
 }
+
 .footer__link {
   margin: 0.5rem;
   color: black;
   text-decoration: none;
 }
+
 @include breakpoint(md) {
   .footer__items {
     flex-direction: row;

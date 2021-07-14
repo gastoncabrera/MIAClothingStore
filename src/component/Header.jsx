@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 import Buys from "./Buys";
 
-function Header({ buy, cart }) {
+function Header({ buy, cart = [] }) {
   const [sidebar, setsidebar] = useState(false);
   const showSidebar = () => setsidebar(!sidebar);
 
@@ -15,8 +14,6 @@ function Header({ buy, cart }) {
       return 0;
     } else return cart.length;
   }
-
-  console.log(cart);
 
   return (
     <div className="header">
@@ -94,11 +91,5 @@ function Header({ buy, cart }) {
     </div>
   );
 }
-const mapStatetoPropers = (state) => {
-  return {
-    // cart: state.shop,
-    cart: [],
-  };
-};
 
-export default connect(mapStatetoPropers)(Header);
+export default Header

@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   transition: linear 0.5s all;
+
   &__img {
     font-size: 2rem;
     line-height: 2rem;
@@ -14,16 +15,19 @@
     text-align: center;
     margin: 0;
   }
+
   &__container {
     align-items: center;
     display: flex;
     justify-content: space-between;
   }
+
   &__card {
     position: relative;
     display: flex;
     flex-direction: column;
   }
+
   &__quantityShopping {
     position: absolute;
     top: -50%;
@@ -34,6 +38,7 @@
     padding: 0 0.3rem;
     border-radius: 50%;
   }
+
   &__sidebarOpen {
     width: 100vw;
     height: 100vh;
@@ -44,6 +49,7 @@
     transition: 0.2s linear;
     z-index: 2;
   }
+
   &__sidebarClose {
     width: 100vw;
     height: 100vh;
@@ -55,19 +61,23 @@
     display: flex;
   }
 }
+
 .background-header {
   background-color: white;
   box-shadow: 0 2px 0 0 rgba($color: black, $alpha: 0.2);
   transition: linear 1.5s all;
 }
+
 .icon-list {
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50%;
 }
+
 .product__off {
   display: flex;
   align-items: stretch;
 }
+
 .close {
   font-size: 3rem;
   color: white;
@@ -77,6 +87,7 @@
   cursor: pointer;
   transition: 1.5s linear;
 }
+
 .navbar {
   font-size: 2rem;
   display: flex;
@@ -84,15 +95,18 @@
   justify-content: center;
   margin-top: 2rem;
   transition: 2s linear;
+
   & a {
     text-decoration: none;
     color: white;
     padding: 3rem 0;
   }
 }
+
 .container_cardShop {
   width: 100vw;
 }
+
 .container__cardShopOPen {
   height: 100%;
   width: 100vw;
@@ -105,6 +119,7 @@
   display: flex;
   transition: 1s linear;
 }
+
 .shop__buttonClose {
   font-size: 2rem;
   width: 20%;
@@ -116,6 +131,7 @@
   padding-left: 1rem;
   padding-bottom: 0.5rem;
 }
+
 .container__cardShopClose {
   height: 100%;
   background-color: white;
@@ -127,12 +143,14 @@
   display: flex;
   transition: 2s linear;
 }
+
 .container__buys {
   overflow-y: scroll;
   width: 90%;
   align-items: center;
   margin-left: 0.8rem;
 }
+
 .shopping-cart {
   cursor: pointer;
 }
@@ -141,11 +159,13 @@
   display: flex;
   flex-direction: column;
 }
+
 .shop__total {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
 }
+
 .shop__finalizeBuy {
   width: 100%;
   text-align: center;
@@ -155,16 +175,20 @@
   justify-content: center;
   align-content: center;
 }
+
 @include breakpoint(sm) {
   .header__sidebarOpen {
     width: 30vw;
   }
+
   .header__sidebarClose {
     width: 30vw;
   }
+
   .container__cardShopOPen {
     width: 40vw;
   }
+
   .container__cardShopClose {
     width: 40vw;
   }

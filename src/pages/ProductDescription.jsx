@@ -1,38 +1,39 @@
-import React, { Fragment, useEffect, useState } from "react";
 import "../sass/pages/productDescription.scss";
+
+import React, { Fragment, useEffect, useState } from "react";
+
 import Footer from "../component/Footer";
-import { connect } from "react-redux";
+
 import { productsPopulated } from "../const";
-// import { addShop } from "../store/actions/action";
 
 const ProductDescription = (props) => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const { id } = props.match.params;
-    const productFounded = productsPopulated.find((item) => item.id == id);
-    const TallePorDefecto = productFounded.sizes[0].size;
+    const productFounded = productsPopulated.find((item) => item.id === id);
     setProduct(productFounded);
-  }, []);
+  }, [props.match.params]);
 
   const [quantity, setquantity] = useState(1);
 
-  const [sizes, setsizes] = useState("");
+  // const [sizes, setsizes] = useState("");
 
-  const chosenSize = (event) => {
-    setsizes(event.target.value);
-  };
+  // const chosenSize = (event) => {
+  //   setsizes(event.target.value);
+  // };
+
   // const addShop = (event) => {
   //   event.preventDefault();
   // };
 
-  const handleAddShop = () => {
+  // const handleAddShop = () => {
     // props.addShop({
     //   product,
     //   quantity,
     //   sizes,
     // });
-  };
+  // };
 
   return product ? (
     <Fragment>
@@ -88,8 +89,8 @@ const ProductDescription = (props) => {
                   <div className="size__buttonContainer">
                     {product.sizes.map((x) => (
                       <label for={x.size}>
+                        {/* onChange={chosenSize} */}
                         <input
-                          onChange={chosenSize}
                           type="radio"
                           name="size"
                           value={x.size}
@@ -105,7 +106,7 @@ const ProductDescription = (props) => {
 
             <p className="description__price">
               Total:
-              {product.offerPrice == false ? (
+              {product.offerPrice === false ? (
                 <p>${product.normalPrice * quantity}</p>
               ) : (
                 <p> ${product.offerPricePrice * quantity}</p>
@@ -115,7 +116,7 @@ const ProductDescription = (props) => {
             <button
               className="description__addShop"
               type="submit"
-              onClick={() => handleAddShop()}
+              // onClick={() => handleAddShop()}
             >
               Agregar al carrito
             </button>

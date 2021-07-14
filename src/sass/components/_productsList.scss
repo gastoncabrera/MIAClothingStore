@@ -2,32 +2,39 @@
   background-color: gray !important;
   box-shadow: 0 0 1px 3px rgba($color: black, $alpha: 0.6) !important;
 }
+
 .ejXxNI:hover,
 .ejXxNI:focus {
   box-shadow: 0 0 1px 3px rgba($color: black, $alpha: 0.6) !important;
   background-color: gray !important;
 }
+
 .cGKbZh {
   background-color: gray !important;
 }
+
 .cGKbZh:hover:enabled {
   background-color: gray !important;
 }
+
 .title {
   padding-top: 7rem;
 }
+
 .productsHome__container {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
 }
+
 .searchFilter__container {
   display: flex;
   flex-direction: column;
   margin: 2rem;
   align-items: center;
 }
+
 .search {
   border: 1px solid black;
   border-radius: 2rem;
@@ -36,15 +43,18 @@
   align-items: center;
   height: 2.5rem;
 }
+
 .search__input {
   border: transparent;
   width: 100%;
   border-radius: 2rem;
   outline: none;
 }
+
 .search__image {
   margin-left: 0.5rem;
 }
+
 .category__filter {
   margin-left: 1rem;
   margin-top: 1rem;
@@ -52,13 +62,16 @@
     outline: none;
   }
 }
+
 .filterSelect__size,
 .filterSelect__color {
   display: none;
 }
+
 .filter {
   height: 3rem;
 }
+
 @include breakpoint(sm) {
   .searchFilter__container {
     flex-direction: row;
@@ -66,18 +79,21 @@
     align-items: flex-start;
   }
 }
+
 @include breakpoint(md) {
   .products__container {
     display: flex;
     flex-wrap: nowrap;
     gap: 2rem;
   }
+
   .searchFilter__container {
     margin: 1rem;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
   }
+
   .filterSelect__size {
     display: flex;
     flex-direction: column;
@@ -87,6 +103,7 @@
       padding: 0;
     }
   }
+
   .size {
     display: flex;
     align-items: center;
@@ -95,13 +112,16 @@
       margin-right: 0.5rem;
     }
   }
+
   .filterSelect__size,
   .filterSelect__color {
     display: flex;
   }
+
   .category__filter {
     margin-left: 0;
   }
+
   .filterSelect__color {
     display: flex;
     flex-direction: column;
@@ -111,9 +131,11 @@
       padding: 0;
     }
   }
+
   .color input {
     margin-right: 0.5rem;
   }
+
   .productsFilter__container {
     width: 77vw;
     gap: 1rem;

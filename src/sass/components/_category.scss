@@ -7,13 +7,16 @@
   overflow: hidden;
   box-sizing: border-box;
 }
+
 .category {
   filter: grayscale(25%);
   transition: transform 1s linear;
+
   &:hover {
     filter: grayscale(60%);
     transform: scale(1.1);
   }
+
   &__image {
     height: 20rem;
     width: 100%;
@@ -25,16 +28,19 @@
     //   transform: scale(1.1);
     // }
   }
+
   &__description {
     position: absolute;
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
     text-align: center;
+
     & .title {
       font-size: 2rem;
       padding: 1rem;
     }
+
     & .button {
       font-family: Arial, Helvetica, sans-serif;
       font-weight: 800;
@@ -49,11 +55,13 @@
     }
   }
 }
+
 @include breakpoint(md) {
   .category {
     margin: 0;
     overflow: hidden;
   }
+
   .main {
     gap: 1rem;
     display: grid;
@@ -63,15 +71,19 @@
       "img-1 img-2 img-2"
       "img-3 img-3 img-4";
   }
+
   #img-1 {
     grid-area: img-1;
   }
+
   #img-2 {
     grid-area: img-2;
   }
+
   #img-3 {
     grid-area: img-3;
   }
+
   #img-4 {
     grid-area: img-4;
   }
