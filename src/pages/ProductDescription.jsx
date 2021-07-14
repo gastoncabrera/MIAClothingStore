@@ -11,19 +11,15 @@ const ProductDescription = (props) => {
   useEffect(() => {
     const { id } = props.match.params;
     const productFounded = productsPopulated.find((item) => item.id == id);
+    const TallePorDefecto = productFounded.sizes[0].size;
     setProduct(productFounded);
   }, []);
 
   const [quantity, setquantity] = useState(1);
-
-  const [size, setsize] = useState({ talle: ` ` });
+  const [sizes, setsizes] = useState("");
   const chosenSize = (event) => {
-    setsize({
-      ...size,
-      [event.target.name]: event.target.value,
-    });
+    setsizes(event.target.value);
   };
-
   const addShop = (event) => {
     event.preventDefault();
   };
@@ -32,7 +28,7 @@ const ProductDescription = (props) => {
     props.addShop({
       product,
       quantity,
-      size,
+      sizes,
     });
   };
 
@@ -83,8 +79,19 @@ const ProductDescription = (props) => {
               <div className="description__size">
                 <div className="size">
                   <div className="size__buttonContainer">
-                    <select onChange={chosenSize}>
-                      <option disabled=" ">Talle</option>
+                    {product.sizes.map((x) => (
+                      <label for={x.size}>
+                        <input
+                          onChange={chosenSize}
+                          type="radio"
+                          name="size"
+                          value={x.size}
+                          id={x.size}
+                        />
+                        {x.size}
+                      </label>
+                    ))}
+                    {/* <select onChange={chosenSize}>
                       {product.sizes.map((props) => (
                         <option
                           className="size__button"
@@ -94,7 +101,7 @@ const ProductDescription = (props) => {
                           {props.size}
                         </option>
                       ))}
-                    </select>
+                    </select> */}
                   </div>
                 </div>
               </div>

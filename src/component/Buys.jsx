@@ -5,19 +5,18 @@ import { deleteShop } from "../redux/actions/action";
 import { modifyShop } from "../redux/actions/action";
 
 const Buys = (product) => {
-  console.log(product.product.product);
   const { id, title, images, offerPricePrice, normalPrice, sizes } =
     product.product.product;
   const { quantity } = product.product;
-  // const talle = product.product.size[""];
   const handleDeleteBuy = (id) => {
     product.deleteShop(id);
   };
-  // const nuevotalle = () => {
-  //   if (talle === undefined) {
-  //     return sizes[0].size;
-  //   } else return talle;
-  // };
+  const talle = product.product.sizes;
+  const nuevotalle = () => {
+    if (talle === "") {
+      return sizes[0].size;
+    } else return talle;
+  };
   const handleModifyShop = (id) => {
     product.modifyShop(id);
   };
@@ -29,7 +28,7 @@ const Buys = (product) => {
         <img className="buy__images" src={images} alt="producto" />
         <div className="container__description">
           <h1 className="buy__title">{title}</h1>
-          {/* <p>Talle: {nuevotalle()}</p> */}
+          <p>Talle: {nuevotalle()}</p>
           Cantidad:
           <div>
             <button

@@ -74,14 +74,11 @@ function Header({ buy, cart }) {
             <div className="shop__buttonClose" onClick={showShop}>
               <p>X</p>
             </div>
-            {/* <div className="container__buys">
+            <div className="container__buys">
               {cart.map((props) => (
-                <li key={props.id}>
-                  {console.log(props)} <p>{}</p>
-                </li>
-                // <Buys product={props} />
+                <Buys product={props} />
               ))}
-            </div> */}
+            </div>
             <p className="shop__total">Total $</p>
             <button
               className="shop__finalizeBuy"
