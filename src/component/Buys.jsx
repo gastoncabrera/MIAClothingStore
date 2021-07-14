@@ -1,35 +1,44 @@
 import React, { useState } from "react";
 import "../sass/components/buys.scss";
 import { connect } from "react-redux";
-import { deleteShop } from "../redux/actions/action";
-import { modifyShop } from "../redux/actions/action";
+// import { deleteShop } from "../store/actions/action";
+// import { modifyShop } from "../store/actions/action";
 
 const Buys = (product) => {
   const { id, title, images, offerPricePrice, normalPrice, sizes } =
     product.product.product;
+
   const { quantity } = product.product;
+
   const handleDeleteBuy = (id) => {
-    product.deleteShop(id);
+    // product.deleteShop(id);
   };
+
   const talle = product.product.sizes;
+
   const nuevotalle = () => {
     if (talle === "") {
       return sizes[0].size;
     } else return talle;
   };
+
   const handleModifyShop = (id) => {
-    product.modifyShop(id);
+    // product.modifyShop(id);
   };
 
   const [quantitymodify, setquantitymodify] = useState(quantity);
+
   return (
     <>
       <div className="container__buy">
         <img className="buy__images" src={images} alt="producto" />
+
         <div className="container__description">
           <h1 className="buy__title">{title}</h1>
+
           <p>Talle: {nuevotalle()}</p>
           Cantidad:
+
           <div>
             <button
               disabled={quantity <= 1}
@@ -37,7 +46,9 @@ const Buys = (product) => {
             >
               -
             </button>
+
             {quantitymodify}
+
             <button
               disabled={quantity > 2}
               onClick={() => handleModifyShop(id)}
@@ -45,12 +56,14 @@ const Buys = (product) => {
               +
             </button>
           </div>
+
           {offerPricePrice === null ? (
             <p className="buy__price">${normalPrice * quantitymodify}</p>
           ) : (
             <p className="buy__price">${offerPricePrice * quantitymodify}</p>
           )}
         </div>
+
         <div className="buy__delete">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -72,8 +85,10 @@ const Buys = (product) => {
     </>
   );
 };
-const mapDispatchToProps = {
-  deleteShop,
-  modifyShop,
-};
-export default connect(null, mapDispatchToProps)(Buys);
+
+// const mapDispatchToProps = {
+//   deleteShop,
+//   modifyShop,
+// };
+
+export default Buys

@@ -9,11 +9,13 @@ function Header({ buy, cart }) {
 
   const [Dropdawnshop, setshop] = useState(false);
   const showShop = () => setshop(!Dropdawnshop);
+
   function quantity() {
     if (cart.length < 1) {
       return 0;
     } else return cart.length;
   }
+
   console.log(cart);
 
   return (
@@ -94,7 +96,9 @@ function Header({ buy, cart }) {
 }
 const mapStatetoPropers = (state) => {
   return {
-    cart: state.shop,
+    // cart: state.shop,
+    cart: [],
   };
 };
+
 export default connect(mapStatetoPropers)(Header);

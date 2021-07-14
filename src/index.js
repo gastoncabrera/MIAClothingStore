@@ -1,23 +1,34 @@
+// libraries
 import React from "react";
 import ReactDOM from "react-dom";
-
-import reportWebVitals from "./reportWebVitals";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Nav from "./pages/Nav";
-import { createStore } from "redux";
-import reducer from "./redux/reducer/reducer";
 import { Provider } from "react-redux";
+import { BrowserRouter, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const store = createStore(reducer, {
-  shop: [],
-});
+// components
+import Layout from "./component/Layout";
 
-export default store;
+// pages
+import ProductDescription from "./pages/ProductDescription";
+import ProductsList from "./pages/ProductsList";
+import Home from "./pages/Home";
+
+// store
+import store from "./store";
+
+// reports
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Nav />
+      <BrowserRouter>
+        <Layout>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/productos" component={ProductsList} />
+          <Route exact path="/productos/:id" component={ProductDescription} />
+        </Layout>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

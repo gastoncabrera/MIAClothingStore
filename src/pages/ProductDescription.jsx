@@ -3,7 +3,7 @@ import "../sass/pages/productDescription.scss";
 import Footer from "../component/Footer";
 import { connect } from "react-redux";
 import { productsPopulated } from "../const";
-import { addShop } from "../redux/actions/action";
+// import { addShop } from "../store/actions/action";
 
 const ProductDescription = (props) => {
   const [product, setProduct] = useState(null);
@@ -16,20 +16,22 @@ const ProductDescription = (props) => {
   }, []);
 
   const [quantity, setquantity] = useState(1);
+
   const [sizes, setsizes] = useState("");
+
   const chosenSize = (event) => {
     setsizes(event.target.value);
   };
-  const addShop = (event) => {
-    event.preventDefault();
-  };
+  // const addShop = (event) => {
+  //   event.preventDefault();
+  // };
 
   const handleAddShop = () => {
-    props.addShop({
-      product,
-      quantity,
-      sizes,
-    });
+    // props.addShop({
+    //   product,
+    //   quantity,
+    //   sizes,
+    // });
   };
 
   return product ? (
@@ -40,9 +42,12 @@ const ProductDescription = (props) => {
             <img src={product.images} alt={`imagen de ${product.title}`} />
           </div>
         </div>
+
         <div className="description__container">
           <h5 className="description__title">{product.title}</h5>
-          <form onSubmit={addShop}>
+
+          <form>
+          {/* <form onSubmit={addShop}> */}
             <div className="description__quantity">
               <button className="removeQuantity btn" disabled={quantity <= 1}>
                 <svg
@@ -58,7 +63,9 @@ const ProductDescription = (props) => {
                   <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                 </svg>
               </button>
+
               {quantity}
+
               <button className="addQuantity btn" disabled={quantity > 2}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -91,21 +98,11 @@ const ProductDescription = (props) => {
                         {x.size}
                       </label>
                     ))}
-                    {/* <select onChange={chosenSize}>
-                      {product.sizes.map((props) => (
-                        <option
-                          className="size__button"
-                          key={props.id}
-                          value={props.size}
-                        >
-                          {props.size}
-                        </option>
-                      ))}
-                    </select> */}
                   </div>
                 </div>
               </div>
             </div>
+
             <p className="description__price">
               Total:
               {product.offerPrice == false ? (
@@ -114,6 +111,7 @@ const ProductDescription = (props) => {
                 <p> ${product.offerPricePrice * quantity}</p>
               )}
             </p>
+            
             <button
               className="description__addShop"
               type="submit"
@@ -130,8 +128,8 @@ const ProductDescription = (props) => {
     <h1>Producto no encontrado</h1>
   );
 };
-const mapDispatchToProps = {
-  addShop,
-};
+// const mapDispatchToProps = {
+//   addShop,
+// };
 
-export default connect(null, mapDispatchToProps)(ProductDescription);
+export default ProductDescription

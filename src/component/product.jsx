@@ -4,8 +4,9 @@ import PercentajeOffer from "./PercentajeOffer";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { addShop } from "../redux/actions/action";
+// import { addShop } from "../store/actions/action";
 import { Component } from "react";
+
 class Product extends Component {
   render() {
     const { product } = this.props;
@@ -21,7 +22,7 @@ class Product extends Component {
 
     return (
       <div className="product__container">
-        <Link to={`/producto/${id}`}>
+        <Link to={`/productos/${id}`}>
           <img src={images} alt="remera" className="product__image" />
         </Link>
 
@@ -69,8 +70,9 @@ class Product extends Component {
     );
   }
 }
-const mapDispatchToProps = {
-  addShop,
-};
 
-export default connect(null, mapDispatchToProps)(Product);
+// const mapDispatchToProps = {
+//   addShop,
+// };
+
+export default Product
