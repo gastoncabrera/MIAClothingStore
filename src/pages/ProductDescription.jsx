@@ -1,39 +1,51 @@
-import "../sass/pages/productDescription.scss";
-
 import React, { Fragment, useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+  addCartItem,
+  updateCartItem,
+  selectCarts,
+  // selectCartsPopulated,
+} from "./../store/modules/cart";
+import { productsPopulated } from "../const";
 
 import Footer from "../component/Footer";
-
-import { productsPopulated } from "../const";
+import "../sass/pages/productDescription.scss";
 
 const ProductDescription = (props) => {
   const [product, setProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const [sizeId, setSizeId] = useState(null);
 
+  const dispatch = useDispatch();
+  const carts = useSelector(selectCarts);
+  // const cartsPopulated = useSelector(selectCartsPopulated);
+
+  // obtener producto
   useEffect(() => {
     const { id } = props.match.params;
-    const productFounded = productsPopulated.find((item) => item.id === id);
+    const productFounded = productsPopulated.find((item) => item.id === parseInt(id));
     setProduct(productFounded);
   }, [props.match.params]);
 
-  const [quantity, setquantity] = useState(1);
+  const handleAddShop = (event) => {
+    event.preventDefault();
 
-  // const [sizes, setsizes] = useState("");
+    if (!sizeId || !quantity) {
+      return;
+    }
 
-  // const chosenSize = (event) => {
-  //   setsizes(event.target.value);
-  // };
+    const existCartItem = carts.some(
+      (cartItem) => cartItem.sizeId === sizeId && cartItem.productId === product.id
+    );
 
-  // const addShop = (event) => {
-  //   event.preventDefault();
-  // };
+    if (existCartItem) {
+      dispatch(updateCartItem({ quantity, sizeId, productId: product.id }));
+      return;
+    }
 
-  // const handleAddShop = () => {
-    // props.addShop({
-    //   product,
-    //   quantity,
-    //   sizes,
-    // });
-  // };
+    dispatch(addCartItem({ quantity, sizeId, productId: product.id }));
+  };
 
   return product ? (
     <Fragment>
@@ -47,10 +59,13 @@ const ProductDescription = (props) => {
         <div className="description__container">
           <h5 className="description__title">{product.title}</h5>
 
-          <form>
-          {/* <form onSubmit={addShop}> */}
+          <form onSubmit={handleAddShop}>
             <div className="description__quantity">
-              <button className="removeQuantity btn" disabled={quantity <= 1}>
+              <button
+                className="removeQuantity btn"
+                disabled={quantity <= 1}
+                type="button"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="2rem"
@@ -58,7 +73,7 @@ const ProductDescription = (props) => {
                   fill="currentColor"
                   className="bi bi-dash-circle"
                   viewBox="0 0 16 16"
-                  onClick={() => setquantity(quantity - 1)}
+                  onClick={() => setQuantity(quantity - 1)}
                 >
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                   <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
@@ -67,7 +82,7 @@ const ProductDescription = (props) => {
 
               {quantity}
 
-              <button className="addQuantity btn" disabled={quantity > 2}>
+              <button className="addQuantity btn" disabled={quantity > 2} type="button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="2rem"
@@ -75,7 +90,7 @@ const ProductDescription = (props) => {
                   fill="currentColor"
                   className="bi bi-plus-circle"
                   viewBox="0 0 16 16"
-                  onClick={() => setquantity(quantity + 1)}
+                  onClick={() => setQuantity(quantity + 1)}
                 >
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -87,16 +102,16 @@ const ProductDescription = (props) => {
               <div className="description__size">
                 <div className="size">
                   <div className="size__buttonContainer">
-                    {product.sizes.map((x) => (
-                      <label for={x.size}>
-                        {/* onChange={chosenSize} */}
+                    {product.sizes.map((sizeItem) => (
+                      <label key={sizeItem.id}>
                         <input
+                          onChange={() => setSizeId(sizeItem.id)}
                           type="radio"
                           name="size"
-                          value={x.size}
-                          id={x.size}
+                          value={sizeItem.size}
                         />
-                        {x.size}
+
+                        {sizeItem.size}
                       </label>
                     ))}
                   </div>
@@ -106,31 +121,23 @@ const ProductDescription = (props) => {
 
             <p className="description__price">
               Total:
-              {product.offerPrice === false ? (
-                <p>${product.normalPrice * quantity}</p>
-              ) : (
-                <p> ${product.offerPricePrice * quantity}</p>
-              )}
+              {product.offerPrice === false
+                ? product.normalPrice * quantity
+                : product.offerPricePrice * quantity}
             </p>
-            
-            <button
-              className="description__addShop"
-              type="submit"
-              // onClick={() => handleAddShop()}
-            >
+
+            <button className="description__addShop" type="submit">
               Agregar al carrito
             </button>
           </form>
         </div>
       </div>
+
       <Footer />
     </Fragment>
   ) : (
     <h1>Producto no encontrado</h1>
   );
 };
-// const mapDispatchToProps = {
-//   addShop,
-// };
 
-export default ProductDescription
+export default ProductDescription;

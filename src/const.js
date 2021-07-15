@@ -12,15 +12,13 @@ const categories = [
   {
     id: 2,
     name: "remera",
-    image:
-      "https://cdn.pixabay.com/photo/2017/11/23/03/17/christmas-2971961_960_720.jpg",
+    image: "https://cdn.pixabay.com/photo/2017/11/23/03/17/christmas-2971961_960_720.jpg",
     cN: "img-2",
   },
   {
     id: 3,
     name: "bluza",
-    image:
-      "https://cdn.pixabay.com/photo/2016/05/22/18/55/woman-1409015_960_720.jpg",
+    image: "https://cdn.pixabay.com/photo/2016/05/22/18/55/woman-1409015_960_720.jpg",
     cN: "img-3",
   },
   {
@@ -59,6 +57,7 @@ const sizes = [
     size: "L",
   },
 ];
+
 const products = [
   {
     id: 1,
@@ -67,8 +66,7 @@ const products = [
     normalPrice: 1800,
     offerPricePrice: 1300,
     offerPrice: true,
-    images:
-      "https://i.ibb.co/Q9CwrCk/Whats-App-Image-2021-06-14-at-20-51-00.jpg",
+    images: "https://i.ibb.co/Q9CwrCk/Whats-App-Image-2021-06-14-at-20-51-00.jpg",
 
     sizes: [1, 2],
     categories: [1],
@@ -81,8 +79,7 @@ const products = [
     normalPrice: 1100,
     offerPricePrice: 990,
     offerPrice: true,
-    images:
-      "https://i.ibb.co/f08f2Gk/Whats-App-Image-2021-06-14-at-20-51-01.jpg",
+    images: "https://i.ibb.co/f08f2Gk/Whats-App-Image-2021-06-14-at-20-51-01.jpg",
 
     sizes: [2],
     categories: [1],
@@ -144,17 +141,17 @@ const products = [
     colors: [2],
   },
 ];
+
 const productVisibility = [];
+
 const productsPopulated = products.map((productItem) => {
   const _categories = categories.filter((categoryItem) =>
     productItem.categories.includes(categoryItem.id)
   );
-  const _colors = colors.filter((colorItem) =>
-    productItem.colors.includes(colorItem.id)
-  );
-  const _sizes = sizes.filter((sizeItem) =>
-    productItem.sizes.includes(sizeItem.id)
-  );
+
+  const _colors = colors.filter((colorItem) => productItem.colors.includes(colorItem.id));
+
+  const _sizes = sizes.filter((sizeItem) => productItem.sizes.includes(sizeItem.id));
 
   return {
     ...productItem,
@@ -163,6 +160,7 @@ const productsPopulated = products.map((productItem) => {
     sizes: _sizes,
   };
 });
+
 export {
   products,
   categories,

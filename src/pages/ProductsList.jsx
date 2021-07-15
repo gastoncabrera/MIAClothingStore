@@ -1,12 +1,15 @@
 import React, { Fragment, useState } from "react";
+
 import "../sass/pages/productsList.scss";
+
 import Footer from "../component/Footer";
 import ProductPrueba from "../component/productPrueba";
 
 function ProductsList(props) {
-  const [filter, setfilter] = useState({ category: `` });
+  const [filter, setFilter] = useState({ category: `` });
+
   const handleChange = (event) => {
-    setfilter({
+    setFilter({
       ...filter,
       [event.target.name]: event.target.value,
     });
@@ -15,6 +18,7 @@ function ProductsList(props) {
   return (
     <Fragment>
       <h1 className="title">Productos</h1>
+
       <div className="products__container">
         <div className="searchFilter__container">
           <div className="search">
@@ -28,8 +32,10 @@ function ProductsList(props) {
             >
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
+
             <input type="search" className="search__input"></input>
           </div>
+
           <div className="filter">
             <div className="category__filter">
               <select
@@ -51,23 +57,25 @@ function ProductsList(props) {
                 </option>
               </select>
             </div>
-            <div
-              className="filterSelect__size"
-              onClick={(event) => console.log(event)}
-            >
+
+            <div className="filterSelect__size" onClick={(event) => console.log(event)}>
               <p>Talles:</p>
-              <label htmlFor="size--s" className="size">
+
+              <label className="size">
                 <input type="checkbox" id="size--s" value="S" name="talle" />S
               </label>
-              <label htmlFor="size--m" className="size">
+
+              <label className="size">
                 <input type="checkbox" id="size--m" value="M" name="talle" />M
               </label>
-              <label htmlFor="size--l" className="size">
+
+              <label className="size">
                 <input type="checkbox" id="size--l" value="L" name="talle" />L
               </label>
             </div>
           </div>
         </div>
+
         <div className="productsFilter__container">
           {/* {productsPopulated.map((props) => (
             <Product product={props} key={props.id} />
@@ -75,6 +83,7 @@ function ProductsList(props) {
           <ProductPrueba props={filter} />
         </div>
       </div>
+
       <Footer />
     </Fragment>
   );

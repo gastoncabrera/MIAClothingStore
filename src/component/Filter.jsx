@@ -37,27 +37,29 @@ const Filter = () => {
         onChange={(event) => console.log(event.target.value)}
       >
         <p>Talles:</p>
-        <label htmlFor="size--s" className="size">
+        <label className="size">
           <input type="checkbox" id="size--s" value="s" />S
         </label>
-        <label htmlFor="size--m" className="size">
+
+        <label className="size">
           <input type="checkbox" id="size--m" value="s" />M
         </label>
-        <label htmlFor="size--l" className="size">
+
+        <label className="size">
           <input type="checkbox" id="size--l" value="s" />L
         </label>
       </div>
       <div className="filterSelect__color">
         <p>Colores:</p>
-        <label htmlFor="color--white" className="color">
+        <label className="color">
           <input type="checkbox" id="color--white" />
           Blanco
         </label>
-        <label htmlFor="color--blue" className="color">
+        <label className="color">
           <input type="checkbox" id="color--blue" />
           Azul
         </label>
-        <label htmlFor="color--black" className="color">
+        <label className="color">
           <input type="checkbox" id="color--black" />
           Negro
         </label>

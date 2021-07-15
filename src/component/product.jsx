@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -6,15 +5,7 @@ import "../sass/pages/home.scss";
 import PercentajeOffer from "./PercentajeOffer";
 
 const Product = ({ product }) => {
-  const {
-    id,
-    images,
-    offerPricePrice,
-    normalPrice,
-    sizes,
-    title,
-    offerPrice,
-  } = product;
+  const { id, images, offerPricePrice, normalPrice, sizes, title, offerPrice } = product;
 
   return (
     <div className="product__container">
@@ -32,7 +23,7 @@ const Product = ({ product }) => {
       ) : (
         true
       )}
-      
+
       <div className="product__cart">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -54,11 +45,7 @@ const Product = ({ product }) => {
         ) : (
           true
         )}
-        <p
-          className={
-            offerPricePrice !== null ? "example" : "product__offerprice"
-          }
-        >
+        <p className={offerPricePrice !== null ? "example" : "product__offerprice"}>
           ${normalPrice}
         </p>
       </div>
@@ -68,6 +55,6 @@ const Product = ({ product }) => {
       </span>
     </div>
   );
-}
+};
 
-export default Product
+export default Product;
