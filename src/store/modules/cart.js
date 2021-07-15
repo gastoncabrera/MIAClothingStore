@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { products, sizes } from "./../../const";
+import { products, sizes, maxProductStock } from "./../../const";
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -17,7 +17,9 @@ export const cartSlice = createSlice({
     },
 
     deleteCartItem(state, { payload }) {
-      state.carts.splice(payload, 1);
+      const cartItemIndex = state.carts.findIndex((cartItem) => cartItem.id === payload);
+
+      state.carts.splice(cartItemIndex, 1);
     },
 
     updateCartItem(state, action) {
@@ -27,14 +29,39 @@ export const cartSlice = createSlice({
         (cartItem) => cartItem.sizeId === sizeId && cartItem.productId === productId
       );
 
-      state.carts[cartItemIndex].quantity = quantity;
+      state.carts[cartItemIndex].quantity += quantity;
+
+      if (state.carts[cartItemIndex].quantity >= maxProductStock) {
+        state.carts[cartItemIndex].quantity = maxProductStock;
+      }
+    },
+
+    subtractQuantityCartItem(state, { payload }) {
+      const cartItemIndex = state.carts.findIndex((cartItem) => cartItem.id === payload);
+
+      state.carts[cartItemIndex].quantity--;
+    },
+
+    addQuantityCartItem(state, { payload }) {
+      const cartItemIndex = state.carts.findIndex((cartItem) => cartItem.id === payload);
+
+      state.carts[cartItemIndex].quantity++;
     },
   },
 });
 
-export const { addCartItem, deleteCartItem, updateCartItem } = cartSlice.actions;
+export const {
+  addCartItem,
+  deleteCartItem,
+  updateCartItem,
+  subtractQuantityCartItem,
+  addQuantityCartItem,
+  findIndexCartItem,
+} = cartSlice.actions;
 
 export const selectCarts = (state) => state.cart.carts;
+
+export const selectCartsLength = (state) => state.cart.carts.length;
 
 export const selectCartsPopulated = (state) =>
   state.cart.carts.map(({ productId, sizeId, quantity, id }) => {
@@ -55,5 +82,13 @@ export const selectCartsPopulated = (state) =>
       total,
     };
   });
+
+export const selectCartTotal = (state) => {
+  const cartsPopulated = selectCartsPopulated(state);
+
+  return cartsPopulated.reduce((prev, current) => {
+    return prev + current.total;
+  }, 0);
+};
 
 export default cartSlice.reducer;

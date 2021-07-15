@@ -1,6 +1,3 @@
-const default_clothing_shop = {
-  cuantity: 0,
-};
 const categories = [
   {
     id: 1,
@@ -161,12 +158,14 @@ const productsPopulated = products.map((productItem) => {
   };
 });
 
+const maxProductStock = 10;
+
 export {
   products,
   categories,
   colors,
   sizes,
-  default_clothing_shop,
   productVisibility,
   productsPopulated,
+  maxProductStock,
 };

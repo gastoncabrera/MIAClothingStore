@@ -1,13 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import {
-  addCartItem,
-  updateCartItem,
-  selectCarts,
-  // selectCartsPopulated,
-} from "./../store/modules/cart";
-import { productsPopulated } from "../const";
+import { addCartItem, updateCartItem, selectCarts } from "./../store/modules/cart";
+import { productsPopulated, maxProductStock } from "../const";
 
 import Footer from "../component/Footer";
 import "../sass/pages/productDescription.scss";
@@ -19,13 +14,17 @@ const ProductDescription = (props) => {
 
   const dispatch = useDispatch();
   const carts = useSelector(selectCarts);
-  // const cartsPopulated = useSelector(selectCartsPopulated);
 
   // obtener producto
   useEffect(() => {
     const { id } = props.match.params;
     const productFounded = productsPopulated.find((item) => item.id === parseInt(id));
+
     setProduct(productFounded);
+
+    // if (productFounded) {
+    //   setSizeId(productFounded.sizes[0].id);
+    // }
   }, [props.match.params]);
 
   const handleAddShop = (event) => {
@@ -82,7 +81,11 @@ const ProductDescription = (props) => {
 
               {quantity}
 
-              <button className="addQuantity btn" disabled={quantity > 2} type="button">
+              <button
+                className="addQuantity btn"
+                disabled={quantity >= maxProductStock}
+                type="button"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="2rem"
@@ -108,7 +111,7 @@ const ProductDescription = (props) => {
                           onChange={() => setSizeId(sizeItem.id)}
                           type="radio"
                           name="size"
-                          value={sizeItem.size}
+                          value={sizeItem.id}
                         />
 
                         {sizeItem.size}
